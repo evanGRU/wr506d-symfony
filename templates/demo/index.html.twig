@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DemoController!{% endblock %}
+
+{% block body %}
+<style>
+</style>
+
+<div class="example-wrapper">
+    {{ date |format_datetime('full', 'short', locale='fr') }}
+</div>
+{% endblock %}
