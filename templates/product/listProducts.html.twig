@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+</style>
+
+<div class="example-wrapper">
+    <a href="/product">Accueil</a>
+    <h1>{{ productsList }}</h1>
+    <ul>
+        <li><a href="/product/20">Produit n20</a></li>
+        <li><a href="/product/38">Produit n38</a></li>
+        <li><a href="/product/56">Produit n56</a></li>
+        <li><a href="/product/193">Produit n193</a></li>
+    </ul>
+</div>
+{% endblock %}
