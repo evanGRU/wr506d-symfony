@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DemoController!{% endblock %}
+{% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
 <style>
@@ -8,6 +8,8 @@
 </style>
 
 <div class="example-wrapper">
-    {{ date |format_datetime('full', 'short', locale='fr') }}
+    <a href="/product">Accueil</a>
+    <a href="/product/list">Liste</a>
+    <h1>Page {{ controller_name }}</h1>
 </div>
 {% endblock %}
