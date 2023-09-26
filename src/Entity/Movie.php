@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ApiResource(
@@ -22,21 +23,31 @@ class Movie
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Groups([
+        'movie.read',
+        'actor.read',
+        'category.read'
+    ])]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[Groups('movie.read')]
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[Groups('movie.read')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $releaseDate = null;
 
+    #[Groups('movie.read')]
     #[ORM\Column]
     private ?int $duration = null;
 
+    #[Groups(['movie.read', 'actor.read'])]
     #[ORM\ManyToOne(inversedBy: 'movies')]
     private ?Category $category = null;
 
+    #[Groups('movie.read')]
     #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
     private Collection $actor;
 
