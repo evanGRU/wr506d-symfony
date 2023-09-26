@@ -34,6 +34,10 @@ class Actor
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor')]
     private Collection $movies;
 
+    #[Groups('actor.read')]
+    #[ORM\ManyToOne(inversedBy: 'actors')]
+    private ?Nationality $Nationality = null;
+
     public function __construct()
     {
         $this->movies = new ArrayCollection();
@@ -91,6 +95,18 @@ class Actor
         if ($this->movies->removeElement($movie)) {
             $movie->removeActor($this);
         }
+
+        return $this;
+    }
+
+    public function getNationality(): ?Nationality
+    {
+        return $this->Nationality;
+    }
+
+    public function setNationality(?Nationality $Nationality): static
+    {
+        $this->Nationality = $Nationality;
 
         return $this;
     }
