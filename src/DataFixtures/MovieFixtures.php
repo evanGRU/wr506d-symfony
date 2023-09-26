@@ -2,13 +2,18 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Actor;
 use App\Entity\Movie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class MovieFixtures extends Fixture
+class MovieFixtures extends Fixture implements DependentFixtureInterface
 {
+    public function getDependencies(): array
+    {
+        return [ActorFixtures::class];
+    }
+
     public function load(ObjectManager $manager): void
     {
         foreach (range(1,5) as $i){
