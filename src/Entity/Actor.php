@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
 #[ApiResource(
@@ -24,10 +25,12 @@ class Actor
 
     #[Groups(['actor.read', 'movie.read'])]
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
     private ?string $firstName = null;
 
     #[Groups(['actor.read', 'movie.read'])]
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le nom est obligatoire')]
     private ?string $lastName = null;
 
     #[Groups('actor.read')]
