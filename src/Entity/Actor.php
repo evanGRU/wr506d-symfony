@@ -21,6 +21,10 @@ class Actor
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups([
+        'actor.read',
+        'movie.read'
+    ])]
     private ?int $id = null;
 
     #[Groups(['actor.read', 'movie.read'])]
