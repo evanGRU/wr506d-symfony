@@ -16,7 +16,7 @@ class MovieFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        foreach (range(1,5) as $i){
+        foreach (range(1, 5) as $i) {
             $movie = new Movie();
             $movie->setTitle('Title ' . $i);
             $movie->setDescription('Description ' . $i);
@@ -26,9 +26,9 @@ class MovieFixtures extends Fixture implements DependentFixtureInterface
             // $movie->addActor($this->getReference('actor_' . rand(1, 10)));
 
             $actors = [];
-            foreach (range(1, rand(2, 6)) as $j){
+            foreach (range(1, rand(2, 6)) as $j) {
                 $actor = $this->getReference('actor_' . rand(1, 10));
-                if (!in_array($actor, $actors)){
+                if (!in_array($actor, $actors)) {
                     $actors[] = $actor;
                     $movie->addActor($actor);
                 }
