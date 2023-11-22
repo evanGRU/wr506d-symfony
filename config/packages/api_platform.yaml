@@ -12,3 +12,8 @@ api_platform:
     collection:
         pagination:
             items_per_page_parameter_name: itemsPerPage
+    swagger:
+        api_keys:
+            JWT:
+                name: Authorization
+                type: header
