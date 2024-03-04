@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "662137cf-f2ed-4a58-92e7-e3a1cafafa58",
+		"name": "WRA506",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30040449"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Get Movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDk1NzI5NjQsImV4cCI6MTcwOTU3NjU2NCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlckBtYWlsLmNvbSJ9.Ko5i8Sf0KrHs_fei4BMhozWLRqCDfl7qBGCI0tA9Vw_sTI3S4o4dgIpSIn5dQBSldC3BIjHz-0mdWJLBhhb5Sw14OJiUS8fGXS23o6vZDrfUx4b_tfAofbyVm07hUKHWk5KKmPOxkUmbMJ45g1Pp1pOTC-6FYf-SdJ8F0K9FlJvKn7_muZLUYY88uMNZtHInkH5ahU4aPJ201yFDMf33Uixo0YMXX4tCfQhlgn0A94zWwf5qqxI0peQifSfMx66oMUG7xfdIKbjrqbkCwC7r5CAqdKotQ59Z_DnxjgOGWFeNviK7CiTkhAM3gWTUuBm8t-hrb-qNl52F_Pn0nCHgiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/movies",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"duration\": 100,\n    \"releaseDate\": \"2024-03-04T15:33:21.376Z\",\n    \"category\": \"URI\",\n    \"actor\": [\n        \"URI\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/movies",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Movies",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/merge-patch+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"category\": \"/symfony-s5/api/categories/66\",\n  \"actor\": [\n    \"/symfony-s5/api/actors/351\",\n    \"/symfony-s5/api/actors/352\"\n  ],\n  \"title\": \"Titre\",\n  \"description\": \"Desc du film\",\n  \"releaseDate\": \"2024-01-31T09:04:20.026Z\",\n  \"duration\": 10,\n  \"online\": true,\n  \"note\": 5,\n  \"entries\": 5000000,\n  \"budget\": 10,\n  \"director\": \"Réalisateur\",\n  \"website\": \"http://film.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_PROD}}/movies/301",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"movies",
+								"301"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movies",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_PROD}}/movies/301",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"movies",
+								"301"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actors",
+			"item": [
+				{
+					"name": "Get Actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_PROD}}/actors",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Actor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDk1NzI5NjQsImV4cCI6MTcwOTU3NjU2NCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlckBtYWlsLmNvbSJ9.Ko5i8Sf0KrHs_fei4BMhozWLRqCDfl7qBGCI0tA9Vw_sTI3S4o4dgIpSIn5dQBSldC3BIjHz-0mdWJLBhhb5Sw14OJiUS8fGXS23o6vZDrfUx4b_tfAofbyVm07hUKHWk5KKmPOxkUmbMJ45g1Pp1pOTC-6FYf-SdJ8F0K9FlJvKn7_muZLUYY88uMNZtHInkH5ahU4aPJ201yFDMf33Uixo0YMXX4tCfQhlgn0A94zWwf5qqxI0peQifSfMx66oMUG7xfdIKbjrqbkCwC7r5CAqdKotQ59Z_DnxjgOGWFeNviK7CiTkhAM3gWTUuBm8t-hrb-qNl52F_Pn0nCHgiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"movies\": [\n        \"URI\"\n    ],\n    \"nationality\": \"URI\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/actors",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Actors",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/merge-patch+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Prénom\",\n    \"lastName\": \"Nom\",\n    \"movies\": [\n        \"URI\"\n    ],\n    \"nationality\": \"URI\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/actors/{id}",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"actors",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_PROD}}/actors/352",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"actors",
+								"352"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_PROD}}/categories",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"movies\": [\n    \"/symfony-s5/api/movies/307\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_PROD}}/categories",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Category",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/merge-patch+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"movies\": [\n    \"/symfony-s5/api/movies/307\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_PROD}}/categories/{id}",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"categories",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Nationality",
+			"item": [
+				{
+					"name": "Get Nationalities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Nationality",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"actors\": [\n    \"/symfony-s5/api/actors/430\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_PROD}}/nationalities",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"nationalities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Nationality",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/merge-patch+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"libelle\": \"string\",\n  \"actors\": [\n     \"/symfony-s5/api/actors/430\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/nationalities/{id}",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"nationalities",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Nationality",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_PROD}}/nationalities/{id}",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"nationalities",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"string\",\n  \"roles\": [\n    \"string\"\n  ],\n  \"password\": \"string\",\n  \"username\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_PROD}}/users",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"string\",\n  \"roles\": [\n    \"string\"\n  ],\n  \"password\": \"string\",\n  \"username\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_PROD}}/users/{id}",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"users",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_PROD}}/users/{id}",
+							"host": [
+								"{{API_PROD}}"
+							],
+							"path": [
+								"users",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDk1NzI5NTgsImV4cCI6MTcwOTU3NjU1OCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlckBtYWlsLmNvbSJ9.DpbJhDQ7oC7klPltpX-cCziaQc3z1PHw7g0vnGmjfBOyRPLaai9RbUTK5YpM3cnlPDBPAzclsbawGYwtb0GTqYbVnfkhqXBHi-uX1G2HRGJdAeBynt4nVqkd5IAiQ4UotpxM9f8MKrJ410qR9zNs1Ua4X0CmFECZZ-kLqqsDFg9jJRfvE1YDxHzQ-wvm1P_8lcUihZZo5aOxNIOQbHtd5vpEPk5IFR3G7l4yniA6EJ91A0Dlt8wbsQzT1louEgYcDHAFOCMKFAPj8P6bQB1CQrjIGT4PlGy6szdXteT1oygpVZ4iPnRdt85LNYrhmPezG1ZYyT5P_Ffz3KfGlyl26g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDk1NjE5NDMsImV4cCI6MTcwOTU2NTU0Mywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlciJ9.A5VJ5NX9bhyqZSkNUWWv5BQ-exALkIq-Ud6i4AzDzL3ar26vm9dvIgh6GtPV3rb9fMEVa2Ma_QSHN2SnmGLyo1tUeQXRZR1D7yYpgiQn0xUBmyCjvaTXRYe7cy4Iw3c5yFexz98vGzK5D62FTp68Lw2y56ZcL0UaCkcnKr6HgDoikL8kTY7xwTu5e7Nf63aFa_89GLvSrqI8plTmc2lMJRfw-ymloZ7zqzuapxr1jrIIe1Tprf7n3UqGYaMMTXQKxqw5aLhqj3TM1s9Z7Nk2XyVasqX1u6vMkKK0pqUiDtzrCEmSIiMFzQRxmFQUSq_sCMZi-PyShtymHrHetPaAKw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"user@mail.com\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/auth",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API",
+			"value": "https://127.0.0.1:8000/api"
+		}
+	]
+}
