@@ -1,10 +1,1 @@
 
-# WR506 - Evan GRUCHOT - 2024
-
-La documentation de l'API est disponible à l'adresse suivante : [http://localhost:8000/api/doc](http://localhost:8000/api/docs)
-Les identifiants par défaut pour se connecter à l'API sont les suivants :
-```
-User:
-    email: user@test.com [user2-user6]
-    password: test
-```
